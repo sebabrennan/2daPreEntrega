@@ -5,7 +5,7 @@ export const getAll = async (page, limit, name, sort) => {
   try {
     return await prodDao.getAll(page, limit, name, sort);
   } catch (error) {
-    console.log(error);
+    throw new Error(error);
   }
 };
 
@@ -15,7 +15,7 @@ export const getById = async (id) => {
     if (!prod) return false;
     else return prod;
   } catch (error) {
-    console.log(error);
+    throw new Error(error);
   }
 };
 
@@ -25,7 +25,7 @@ export const create = async (obj) => {
     if (!newProd) return false;
     else return newProd;
   } catch (error) {
-    console.log(error);
+    throw new Error(error);
   }
 };
 
@@ -35,7 +35,7 @@ export const update = async (id, obj) => {
     if (!prodUpd) return false;
     else return prodUpd;
   } catch (error) {
-    console.log(error);
+    throw new Error(error);
   }
 };
 
@@ -45,6 +45,6 @@ export const remove = async (id) => {
     if (!prodDel) return false;
     else return prodDel;
   } catch (error) {
-    console.log(error);
+    throw new Error(error);
   }
 };

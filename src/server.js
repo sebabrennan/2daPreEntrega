@@ -1,7 +1,7 @@
 import express from "express";
 import morgan from 'morgan';
 import productRouter from "./routes/product.router.js";
-import cartRouter from "./routes/cart.router.js";
+//import cartRouter from "./routes/cart.router.js";
 import { errorHandler } from "./middlewares/errorHandler.js";
 import { initMongoDB } from "./data/database.js";
 
@@ -13,7 +13,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(morgan("dev"));
 
 app.use("/api/products", productRouter);
-app.use("/api/cart", cartRouter);
+//app.use("/api/cart", cartRouter);
 app.use(errorHandler);
 
 initMongoDB();
