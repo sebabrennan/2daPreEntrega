@@ -17,9 +17,8 @@ export const getAll = async (req, res, next) => {
         hasNextPage: response.hasNextPage
       }
     });
-    res.status(200).json(response);
   } catch (error) {
-    next(error.message);
+    next(error);
   }
 };
 
@@ -30,7 +29,7 @@ export const getById = async (req, res, next) => {
     if (!response) res.status(404).json({ msg: "Product Not found!" });
     else res.status(200).json(response);
   } catch (error) {
-    next(error.message);
+    next(error);
   }
 };
 
@@ -40,7 +39,7 @@ export const create = async (req, res, next) => {
     if (!newProd) res.status(404).json({ msg: "Error create product!" });
     else res.status(200).json(newProd);
   } catch (error) {
-    next(error.message);
+    next(error);
   }
 };
 
@@ -51,7 +50,7 @@ export const update = async (req, res, next) => {
     if (!prodUpd) res.status(404).json({ msg: "Error update product!" });
     else res.status(200).json(prodUpd);
   } catch (error) {
-    next(error.message);
+    next(error);
   }
 };
 
@@ -62,6 +61,6 @@ export const remove = async (req, res, next) => {
     if (!prodDel) res.status(404).json({ msg: "Error delete product!" });
     else res.status(200).json({ msg: `Product id: ${id} deleted` });
   } catch (error) {
-    next(error.message);
+    next(error);
   }
 };

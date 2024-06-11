@@ -27,6 +27,7 @@ export default class ProductDaoMongoDB {
             const response = await ProductModel.findById(id);
             if(response){
                 console.log(`Usuario encontrado: ${response}`);
+                return response
             } else {
                 console.log("Usuario no encontrado");
             }

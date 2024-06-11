@@ -5,7 +5,7 @@ export const getAll = async (req, res, next) => {
       const response = await service.getAll();
       res.status(200).json(response);
     } catch (error) {
-      next(error.message);
+      next(error);
     }
   };
   
@@ -16,7 +16,7 @@ export const getAll = async (req, res, next) => {
       if (!response) res.status(404).json({ msg: "Cart Not found!" });
       else res.status(200).json(response);
     } catch (error) {
-      next(error.message);
+      next(error);
     }
   };
   
@@ -26,7 +26,7 @@ export const getAll = async (req, res, next) => {
       if (!newCart) res.status(404).json({ msg: "Error create cart!" });
       else res.status(200).json(newCart);
     } catch (error) {
-      next(error.message);
+      next(error);
     }
   };
   
@@ -37,7 +37,7 @@ export const getAll = async (req, res, next) => {
       if (!cartUpd) res.status(404).json({ msg: "Error update cart!" });
       else res.status(200).json(cartUpd);
     } catch (error) {
-      next(error.message);
+      next(error);
     }
   };
   
@@ -48,7 +48,7 @@ export const getAll = async (req, res, next) => {
       if (!cartDel) res.status(404).json({ msg: "Error delete cart!" });
       else res.status(200).json({ msg: `Cart id: ${id} deleted` });
     } catch (error) {
-      next(error.message);
+      next(error);
     }
   };
 
@@ -63,7 +63,7 @@ export const addProdToCart = async (req, res, next) => {
       if (!newProdToUserCart) res.json({ msg: "Product | Cart not exist" });
       else res.json(newProdToUserCart);
     } catch (error) {
-      next(error.message);
+      next(error);
     }
   };
 
@@ -78,7 +78,7 @@ export const addProdToCart = async (req, res, next) => {
       if (!delProdToUserCart) res.json({ msg: "Product | Cart not exist" });
       else res.json({msg: `product ${idProd} deleted to cart`});
     } catch (error) {
-      next(error.message);
+      next(error);
     }
   };
 
@@ -95,7 +95,7 @@ export const addProdToCart = async (req, res, next) => {
       if (!updateProdQuantity) res.json({ msg: "Error update product quantity to cart" });
       else res.json(updateProdQuantity);
     } catch (error) {
-      next(error.message);
+      next(error);
     }
   };
 
@@ -108,7 +108,7 @@ export const addProdToCart = async (req, res, next) => {
       if (!clearCart) res.json({ msg: "Error clear cart" });
       else res.json(clearCart);
     } catch (error) {
-      next(error.message);
+      next(error);
     }
   };
 
